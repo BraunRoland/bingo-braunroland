@@ -32,6 +32,20 @@ namespace ConsoleApp1
 			return str;
 		}
 
+		public void SorsoltSzamotJelol(int szam)
+		{
+			for (int i = 0; i < tabla.GetLength(0); i++)
+			{
+				for (int j = 0; j < tabla.GetLength(1); j++)
+				{
+					if (tabla[i, j] == szam.ToString())
+					{
+						tabla[i, j] = "X";
+					}
+				}
+			}
+		}
+
 		public string Nev { get => nev; set => nev = value; }
 		public string[,] Tabla { get => tabla; set => tabla = value; }
 	}
