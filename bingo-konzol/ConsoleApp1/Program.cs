@@ -57,38 +57,58 @@ namespace ConsoleApp1
 
 		static bool BingoEll(BingoJatekos jatekos)
 		{
-			if ()
-			{
+			string[] atlo1 = {jatekos.Tabla[0, 0], jatekos.Tabla[1,1], jatekos.Tabla[2, 2], jatekos.Tabla[3, 3], jatekos.Tabla[4, 4] };
+			string[] atlo2 = { jatekos.Tabla[0, 4], jatekos.Tabla[1, 3], jatekos.Tabla[2, 2], jatekos.Tabla[3, 1], jatekos.Tabla[4, 0] };
+			string[] rendezettAtlo1 = atlo1.Distinct().ToArray();
+			string[] rendezettAtlo2 = atlo2.Distinct().ToArray();
 
-			}
-			else if ()
+			for (int i = 0; i < jatekos.Tabla.GetLength(0); i++)
 			{
-
-			}
-			else if()
-			{
-
+				string[] sor = Sor(jatekos, i);
+				string[] oszlop = Oszlop(jatekos, i);
+				string[] rendezettSor = sor.Distinct().ToArray();
+				string[] rendezettOszlop = oszlop.Distinct().ToArray();
+				//https://stackoverflow.com/questions/9673/how-do-i-remove-duplicates-from-a-c-sharp-array
+				
+				if (rendezettOszlop[0] == "X" && rendezettOszlop.Length == 1)
+				{
+					return true;
+				}
+				else if (rendezettSor[0] == "X" && rendezettSor.Length == 1)
+				{
+					return true;
+				}
+				else if (rendezettAtlo1[0] == "X" && rendezettAtlo1.Length == 1)
+				{
+					return true;
+				}
+				else if (rendezettAtlo2[0] == "X" && rendezettAtlo2.Length == 1)
+				 {
+					 return true;
+				}
 			}
 				return false;
 		}
 
 
-		static void Sor(BingoJatekos jatekos, int x)
+		static string[] Sor(BingoJatekos jatekos, int x)
 		{
 			string[] sor = new string[5];
 			for( int i = 0; i < jatekos.Tabla.GetLength(1); i++)
 			{
 				sor[i] = jatekos.Tabla[x, i];
 			}
+			return sor;
 		}
 
-		static void Oszlop(BingoJatekos jatekos, int y)
+		static string[] Oszlop(BingoJatekos jatekos, int y)
 		{
 			string[] oszlop = new string[5];
 			for (int i = 0; i < jatekos.Tabla.GetLength(0); i++)
 			{
 				oszlop[i] = jatekos.Tabla[i, y];
 			}
+			return oszlop;
 		}
 
 		static void Main(string[] args)
