@@ -10,9 +10,9 @@ namespace ConsoleApp1
 	{
 
 		private string nev;
-		private int[,] tabla;
+		private string[,] tabla;
 
-		public BingoJatekos(string nev, int[,] tabla)
+		public BingoJatekos(string nev, string[,] tabla)
 		{
 			this.nev = nev;
 			this.tabla = tabla;
@@ -33,6 +33,6 @@ namespace ConsoleApp1
 		}
 
 		public string Nev { get => nev; set => nev = value; }
-		public int[,] Tabla { get => tabla; set => tabla = value; }
+		public string[,] Tabla { get => tabla; set => tabla = value; }
 	}
 }

@@ -10,7 +10,7 @@ namespace ConsoleApp1
 	internal class Program
 	{
 
-		static void FajlBeolvasas(string fajlnev)
+		static BingoJatekos FajlBeolvasas(string fajlnev)
 		{
 			Console.WriteLine($"{fajlnev}:");
 			var sr = new StreamReader($"programozás/{fajlnev}");
@@ -22,12 +22,17 @@ namespace ConsoleApp1
 				var adatok = sor.Split(';');
 				for (int i = 0; i < adatok.Length; i++)
 				{
-					tabla[x, i] = adatok[i];
+					if (adatok[i] != "")
+					{
+						tabla[x, i] = adatok[i];
+					}
 				}
 				x++;
 			}
 			Console.WriteLine($"{fajlnev} beolvasása kész.");
 			Console.WriteLine("------------------------------");
+			string nev = fajlnev.Split('.')[0];
+			return new BingoJatekos(nev, tabla);
 		}
 
 		static string[] Nevek()
@@ -50,9 +55,10 @@ namespace ConsoleApp1
 		static void Main(string[] args)
 		{
 			string[] nevek = Nevek();
+			BingoJatekos[] tablak = new BingoJatekos[nevek.Length];
 			for (int i = 0; i < nevek.Length; i++)
 			{
-				FajlBeolvasas(nevek[i]);
+				tablak[i] = FajlBeolvasas(nevek[i]);
 			}
 		}
 	}
