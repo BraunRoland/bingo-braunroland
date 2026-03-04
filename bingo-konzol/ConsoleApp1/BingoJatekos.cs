@@ -11,11 +11,13 @@ namespace ConsoleApp1
 
 		private string nev;
 		private string[,] tabla;
+		private List<string> jeloltSzamok;
 
 		public BingoJatekos(string nev, string[,] tabla)
 		{
 			this.nev = nev;
 			this.tabla = tabla;
+			this.jeloltSzamok = new List<string>();
 		}
 
 		override public string ToString()
@@ -40,7 +42,7 @@ namespace ConsoleApp1
 				{
 					if (tabla[i, j] == szam.ToString())
 					{
-						tabla[i, j] = "X";
+						jeloltSzamok.Add();
 					}
 				}
 			}
@@ -48,5 +50,7 @@ namespace ConsoleApp1
 
 		public string Nev { get => nev; set => nev = value; }
 		public string[,] Tabla { get => tabla; set => tabla = value; }
+
+		public List<string> JeloltSzamok { get => jeloltSzamok; set => jeloltSzamok = value; }
 	}
 }
