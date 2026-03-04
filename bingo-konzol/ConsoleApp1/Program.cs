@@ -54,6 +54,43 @@ namespace ConsoleApp1
 			return tomb;
 
 		}
+
+		static bool BingoEll(BingoJatekos jatekos)
+		{
+			if ()
+			{
+
+			}
+			else if ()
+			{
+
+			}
+			else if()
+			{
+
+			}
+				return false;
+		}
+
+
+		static void Sor(BingoJatekos jatekos, int x)
+		{
+			string[] sor = new string[5];
+			for( int i = 0; i < jatekos.Tabla.GetLength(1); i++)
+			{
+				sor[i] = jatekos.Tabla[x, i];
+			}
+		}
+
+		static void Oszlop(BingoJatekos jatekos, int y)
+		{
+			string[] oszlop = new string[5];
+			for (int i = 0; i < jatekos.Tabla.GetLength(0); i++)
+			{
+				oszlop[i] = jatekos.Tabla[i, y];
+			}
+		}
+
 		static void Main(string[] args)
 		{
 			string[] nevek = Nevek();
