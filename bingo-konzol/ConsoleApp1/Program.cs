@@ -13,6 +13,7 @@ namespace ConsoleApp1
 		static BingoJatekos FajlBeolvasas(string fajlnev)
 		{
 			Console.WriteLine($"{fajlnev}:");
+			Console.WriteLine("------------------------------");
 			var sr = new StreamReader($"programozás/{fajlnev}");
 			int x = 0;
 			string[,] tabla = new string[5, 5];
@@ -20,6 +21,7 @@ namespace ConsoleApp1
 			{
 				var sor = sr.ReadLine();
 				var adatok = sor.Split(';');
+				Console.WriteLine($"{adatok[0]} {adatok[1]} {adatok[2]} {adatok[3]} {adatok[4]}");
 				for (int i = 0; i < adatok.Length; i++)
 				{
 					if (adatok[i] != "")
@@ -29,7 +31,7 @@ namespace ConsoleApp1
 				}
 				x++;
 			}
-			Console.WriteLine($"{fajlnev} beolvasása kész.");
+			Console.WriteLine($"\n{fajlnev} beolvasása kész.");
 			Console.WriteLine("------------------------------");
 			string nev = fajlnev.Split('.')[0];
 			return new BingoJatekos(nev, tabla);
@@ -46,7 +48,7 @@ namespace ConsoleApp1
 			{
 				var sor = sr.ReadLine();
 				tomb[index] = sor;
-				Console.WriteLine($"{sor}");
+				//Console.WriteLine($"{sor}");
 				index++;
 			}
 			return tomb;
@@ -60,6 +62,7 @@ namespace ConsoleApp1
 			{
 				tablak[i] = FajlBeolvasas(nevek[i]);
 			}
+			Console.WriteLine($"Játékosok száma: {tablak.Length}");
 		}
 	}
 }
